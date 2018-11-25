@@ -1,0 +1,24 @@
+.navbar {
+    margin-bottom: auto;
+    border-radius: auto;
+    background-color: #37A4EF;
+  }
+
+  #backBtn{
+color: black;
+  }
+
+#logo{
+ background-size: auto;
+}
+
+.footer {
+  background-color: #37A4EF;
+  color: white;
+  padding: 15px;
+}
+
+#aboutFooter{
+text-align: center;
+}
+

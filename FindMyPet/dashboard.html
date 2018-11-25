@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!--  -->
+  <title>Find My Pet</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1024">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+</head>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li id="myPosts"><a href="myposts.html">My Posts</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contactUs.html">Contact Us</a></li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li id="user_dashboard"></li>
+          <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+<body id="body">
+    <img src="images/findmypet.jpg" id="findmypetImg">
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-12 text-center" id="formCss">
+      <h1 class="contrastHeader" id="dashboard">Dashboard</h1>
+      <br>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#register">Collapse Registration</button>
+
+      <div id="register" class="collapse in">
+        <h3 class="contrastHeader">Register Lost Pet</h3>
+        <form id="dashForm" action="" class="middle" autocomplete="off">
+          <input id="petname" name="petname" type="text" placeholder="Pet Name... "/>
+          <div class="autocomplete">
+          <input id="petspecies" autocomplete="off" name="petspecies" type="text" placeholder="Pet Species..."/>
+          </div>
+          <br>
+          <input id="petbreed" name="petbreed" type="text" placeholder="Pet Breed..."/>
+          <input id="lostlocation" name="lostlocation" type="number" placeholder="Last seen(Zip code)"/>
+          <br>
+          <input id="reward" name="reward" type="number" pattern="[0-9]" placeholder="Reward (optional)..."/>
+          <br>
+          <!-- IMAGE UPLOAD -->   
+          <p>Upload Image below</p>
+          <progress value="0" max = "100" id = "uploader">0%</progress>
+          <input type="file" value = "upload" id = "fileButton" onclick= "imageUpload()" placeholder= "Upload Image" accept="image/*"/>
+          <br><br>
+          <textarea id="DistinctFeatures"placeholder="Distinct Features..."></textarea>
+          <br><br>
+          <button id="submit_btn" class="btn btn-success" type="submit" onclick="dataStore()"> Submit </button>
+        </form>
+        <div class="alert alert-success" id="postedAlet" hidden>
+            <strong>Posted!</strong> 
+          </div>
+      </div>
+      <br>
+      <hr>
+      <br>
+
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#collapsePosts">Collapse Posts</button>
+
+      <div id="collapsePosts" class="collapse in">
+        <h3 class="contrastHeader" id="#Posts">Posts</h3> 
+
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search...">
+            <table id="myTable">
+              <tr class="header">
+                <th>Last Location</th>
+                <th>Pet Name</th>
+                <th>Pet Species</th>
+                <th>Pet Breed</th>
+                <th>Reward</th>
+                <th style="width: 20%;">Distinct Features</th>
+                <th>Picture</th>
+                <th>Contact Owner</th>
+              </tr>
+            </table>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+    </div>
+  </div>
+</div>
+<br><br>
+<footer class="container-fluid text-center">
+  <p>© 2018 by FindMyPet</p>
+</footer>
+
+  <!--JS files-->
+  <script src="fireBase.js"></script>
+  <script src="dashboard.js"></script>
+  <script src="login.js"></script>
+  <script src="animalList.js"></script>
+ 
+</body>
+</html>
